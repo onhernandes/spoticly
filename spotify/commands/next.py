@@ -10,6 +10,7 @@ class Next(Base):
     """Authenticate user"""
 
     def run(self):
+        print(utils.get_spotipy_token())
         sp = spotipy.Spotify(auth=utils.get_spotipy_token())
         sp.next_track()
         current = sp.current_playback()

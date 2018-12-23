@@ -11,11 +11,18 @@ client_id = settings.get("SPOTIPY_CLIENT_ID")
 client_secret = settings.get("SPOTIPY_CLIENT_SECRET")
 redirect_uri = settings.get("SPOTIPY_REDIRECT_URI")
 
+
 class Auth(Base):
     """Authenticate user"""
 
     def run(self):
-        token = util.prompt_for_user_token(username, scopes, client_id=client_id, client_secret=client_secret, redirect_uri=redirect_uri)
-        settings.set({ 'SPOTIPY_TOKEN': token })
+        token = util.prompt_for_user_token(
+            username,
+            scopes,
+            client_id=client_id,
+            client_secret=client_secret,
+            redirect_uri=redirect_uri,
+        )
+        settings.set({"SPOTIPY_TOKEN": token})
         sp = spotipy.Spotify(auth=token)
         print("User authenticated!")

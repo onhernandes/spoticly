@@ -8,29 +8,27 @@ from pprint import pprint
 from PyInquirer import style_from_dict, Token, prompt, Separator
 from examples import custom_style_2
 
+
 class Config(Base):
     """Set spotify config"""
+
     def init_config(self):
         config_questions = [
             {
-                'type': 'input',
-                'name': 'SPOTIPY_USERNAME',
-                'message': 'Your Spotify\'s username',
+                "type": "input",
+                "name": "SPOTIPY_USERNAME",
+                "message": "Your Spotify's username",
+            },
+            {"type": "input", "name": "SPOTIPY_CLIENT_ID", "message": "Your client ID"},
+            {
+                "type": "input",
+                "name": "SPOTIPY_CLIENT_SECRET",
+                "message": "Your client secret",
             },
             {
-                'type': 'input',
-                'name': 'SPOTIPY_CLIENT_ID',
-                'message': 'Your client ID',
-            },
-            {
-                'type': 'input',
-                'name': 'SPOTIPY_CLIENT_SECRET',
-                'message': 'Your client secret',
-            },
-            {
-                'type': 'input',
-                'name': 'SPOTIPY_REDIRECT_URI',
-                'message': 'Your redirect URL',
+                "type": "input",
+                "name": "SPOTIPY_REDIRECT_URI",
+                "message": "Your redirect URL",
             },
         ]
         answers = prompt(config_questions, style=custom_style_2)
@@ -40,23 +38,23 @@ class Config(Base):
     def config(self):
         config_questions = [
             {
-                'type': 'list',
-                'name': 'what_change',
-                'message': 'What you wanna change?',
-                'choices': [
-                    'Client ID',
-                    'Client Secret',
-                    'Redirect URI',
-                    'Username',
-                    'Nah, nothing'
-                ]
+                "type": "list",
+                "name": "what_change",
+                "message": "What you wanna change?",
+                "choices": [
+                    "Client ID",
+                    "Client Secret",
+                    "Redirect URI",
+                    "Username",
+                    "Nah, nothing",
+                ],
             },
             {
-                'type': 'input',
-                'name': 'new_value',
-                'message': 'So, whats new?',
-                'when': lambda answers: answers.get('what_change') != 'Nah, nothing'
-            }
+                "type": "input",
+                "name": "new_value",
+                "message": "So, whats new?",
+                "when": lambda answers: answers.get("what_change") != "Nah, nothing",
+            },
         ]
         answers = prompt(config_questions, style=custom_style_2)
         if not answers.get("new_value", False):
