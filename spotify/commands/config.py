@@ -4,8 +4,7 @@ from json import dumps
 from .base import Base
 from .. import settings
 
-from pprint import pprint
-from PyInquirer import style_from_dict, Token, prompt, Separator
+from PyInquirer import prompt
 from examples import custom_style_2
 
 
@@ -75,7 +74,7 @@ class Config(Base):
         print("Updated!")
 
     def run(self):
-        if not all(list(settings.get_all().values())):
+        if not settings.ensure_all():
             return self.init_config()
 
         return self.config()

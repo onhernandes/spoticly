@@ -1,5 +1,11 @@
 SPOTIPY_CLIENT_ID: 
-SPOTIPY_CLIENT_SECRET: 
-SPOTIPY_REDIRECT_URI: 
+SPOTIPY_CLIENT_SECRET:
+SPOTIPY_REDIRECT_URI:
+SPOTIPY_SCOPES:
+- user-read-playback-state
+- user-read-currently-playing
+- user-modify-playback-state
+- user-read-private
+- streaming
 SPOTIPY_TOKEN: 
-SPOTIPY_USERNAME: 
+SPOTIPY_USERNAME:

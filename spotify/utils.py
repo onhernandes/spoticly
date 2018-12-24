@@ -1,28 +1,17 @@
-from . import settings
+def parse_playing_now_message(playback):
+    """parse_playing_now_message
 
+    :param playback: object
+    :returns str
+    """
+    track = playback.get("item", {}).get("name", False)
 
-def get_spotipy_token():
-    import spotipy
-    import spotipy.util as util
+    artist = playback.get("item", {}).get("artists", [])
+    artist = map(lambda a: a.get("name", ""), artist)
+    artist = ", ".join(list(artist))
 
-    scopes = "user-read-playback-state user-read-currently-playing user-modify-playback-state user-read-private streaming"
-    username = settings.get("SPOTIPY_USERNAME")
-    client_id = settings.get("SPOTIPY_CLIENT_ID")
-    client_secret = settings.get("SPOTIPY_CLIENT_SECRET")
-    redirect_uri = settings.get("SPOTIPY_REDIRECT_URI")
-    return util.prompt_for_user_token(
-        username,
-        scopes,
-        client_id=client_id,
-        client_secret=client_secret,
-        redirect_uri=redirect_uri,
-    )
+    message = "Playing '%s' from '%s' now!" % (track, artist)
+    if not track:
+        message = "Could not get current track!"
 
-
-def get_spotify_auth_params():
-    return {
-        "client_id": settings.get("SPOTIPY_CLIENT_ID"),
-        "client_secret": settings.get("SPOTIPY_CLIENT_SECRET"),
-        "redirect_uri": settings.get("SPOTIPY_REDIRECT_URI"),
-        "username": settings.get("SPOTIPY_USERNAME"),
-    }
+    return message

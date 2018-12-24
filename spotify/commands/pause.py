@@ -1,15 +1,12 @@
 """Next command."""
 from .base import Base
-from .. import settings
-from .. import utils
-
-import spotipy
+from .. import spotify
 
 
 class Pause(Base):
-    """Authenticate user"""
+    """Pause playback"""
 
     def run(self):
-        sp = spotipy.Spotify(auth=utils.get_spotipy_token())
+        sp = spotify.get_spotipy()
         sp.pause_playback()
         print("Player paused!")
