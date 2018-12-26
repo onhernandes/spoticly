@@ -59,6 +59,7 @@ setup(
         "pyyaml",
         "requests",
         "PyInquirer",
+        "spotipy"
     ],
     dependency_links=["http://github.com/plamere/spotipy/tarball/master#egg=spotipy"],
     extras_require={"test": ["coverage", "pytest", "pytest-cov"]},
