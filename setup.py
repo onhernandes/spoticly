@@ -54,8 +54,14 @@ setup(
     ],
     keywords="cli",
     packages=find_packages(exclude=["docs", "tests*"]),
-    install_requires=["docopt", "pyyaml", "requests", "PyInquirer"],
-    dependency_links=["http://github.com/plamere/spotipy/tarball/master"],
+    install_requires=[
+        "docopt",
+        "pyyaml",
+        "requests",
+        "PyInquirer",
+        "spotipy @ https://github.com/plamere/spotipy/archive/master.zip"
+    ],
+    # dependency_links=["http://github.com/plamere/spotipy/tarball/master"],
     extras_require={"test": ["coverage", "pytest", "pytest-cov"]},
     entry_points={"console_scripts": ["spotify-cli=spotify.cli:main"]},
     cmdclass={"test": RunTests},
