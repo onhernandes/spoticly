@@ -1,5 +1,8 @@
 import sys
+import requests
 from . import settings
+
+spotify_base = "https://api.spotify.com/v1/"
 
 
 def get_spotipy_token():
@@ -35,3 +38,30 @@ def get_spotipy():
     import spotipy
     token = get_spotipy_token()
     return spotipy.Spotify(auth=token)
+
+def previous_track(token):
+    url = "%s/me/player/previous" % (spotify_base)
+    headers = {
+        'Authorization': token
+    }
+    r = requests.post(url, headers=headers)
+
+    return r.status_code == 204
+
+def next_track(token):
+    url = "%s/me/player/next" % (spotify_base)
+    headers = {
+        'Authorization': token
+    }
+    r = requests.post(url, headers=headers)
+
+    return r.status_code == 204
+
+def get_current_playback(token):
+    url = "%s/me/player" % (spotify_base)
+    headers = {
+        'Authorization': token
+    }
+    r = requests.get(url, headers=headers)
+
+    return r.json()

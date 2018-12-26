@@ -11,7 +11,7 @@ from spotify import __version__
 
 
 this_dir = abspath(dirname(__file__))
-with open(join(this_dir, "README.rst"), encoding="utf-8") as file:
+with open(join(this_dir, "README.md"), encoding="utf-8") as file:
     long_description = file.read()
 
 
@@ -29,7 +29,7 @@ class RunTests(Command):
 
     def run(self):
         """Run all tests!"""
-        errno = call(["py.test", "--cov=spotify-cli", "--cov-report=term-missing"])
+        errno = call(["py.test", "--cov=spotify", "--cov-report=term-missing"])
         raise SystemExit(errno)
 
 
@@ -51,6 +51,7 @@ setup(
         "Programming Language :: Python :: 3.2",
         "Programming Language :: Python :: 3.3",
         "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.7",
     ],
     keywords="cli",
     packages=find_packages(exclude=["docs", "tests*"]),
@@ -61,7 +62,6 @@ setup(
         "PyInquirer",
         "spotipy"
     ],
-    dependency_links=["http://github.com/plamere/spotipy/tarball/master#egg=spotipy"],
     extras_require={"test": ["coverage", "pytest", "pytest-cov"]},
     entry_points={"console_scripts": ["spotify-cli=spotify.cli:main"]},
     cmdclass={"test": RunTests},

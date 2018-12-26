@@ -8,7 +8,7 @@ class Next(Base):
     """Play next track"""
 
     def run(self):
-        sp = spotify.get_spotipy()
-        sp.next_track()
-        playback = sp.current_playback()
+        token = spotify.get_spotipy_token()
+        spotify.next_track(token)
+        playback = spotify.get_current_playback(token)
         print(parse_playing_now_message(playback))
