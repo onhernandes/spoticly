@@ -2,7 +2,7 @@ import yaml
 import os
 
 current_dir = os.path.dirname(os.path.realpath(__file__))
-config_filepath = os.path.join(current_dir, "config.yaml")
+config_filepath = os.path.join(current_dir, "settings.yaml")
 
 with open(config_filepath, "r") as conf:
     y = yaml.load(conf)
