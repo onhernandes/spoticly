@@ -59,8 +59,10 @@ setup(
         "docopt",
         "pyyaml",
         "requests",
-        "PyInquirer",
-        "spotipy"
+        "PyInquirer"
+    ],
+    dependency_links=[
+        "git+https://github.com/plamere/spotipy.git#egg=spotipy"
     ],
     extras_require={"test": ["coverage", "pytest", "pytest-cov"]},
     entry_points={"console_scripts": ["spotify-cli=spotify.cli:main"]},
