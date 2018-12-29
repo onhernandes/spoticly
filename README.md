@@ -24,6 +24,8 @@ All playback commands are related to current playing device.
 
 ## Examples
 
+- `spotify-cli auth` - authenticates your user
+- `spotify-cli config` - sets your config(like, Client ID, Client Secret, Username, etc)
 - `spotify-cli next` - plays next track on current playing device
 - `spotify-cli prev` - plays previous track on current playing device
 - `spotify-cli pause` - pauses current playing device
