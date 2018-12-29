@@ -7,6 +7,6 @@ class Resume(Base):
     """Authenticate user"""
 
     def run(self):
-        sp = spotify.get_spotipy()
-        sp.start_playback()
+        token = spotify.get_spotipy_token()
+        spotify.resume_playback(token)
         print("Player resumed!")

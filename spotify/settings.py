@@ -5,6 +5,10 @@ config_dir = os.path.join(os.path.expanduser("~"), ".config/spotify-cli/")
 config_filepath = os.path.join(config_dir, "settings.yaml")
 
 
+def user_cache_path(username):
+    return os.path.join(config_dir, ".cache-%s")
+
+
 def ensure_config_file():
     default_settings = {
         "SPOTIPY_CLIENT_ID": "",
