@@ -4,7 +4,6 @@ Usage:
   spotify-cli auth
   spotify-cli next
   spotify-cli prev
-  spotify-cli play <song|playlist> --playlist --artist --shuffle
   spotify-cli resume
   spotify-cli pause
   spotify-cli config
