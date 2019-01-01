@@ -22,8 +22,7 @@ def get_spotify_auth_params():
         "client_secret": settings.get("SPOTIPY_CLIENT_SECRET"),
         "redirect_uri": settings.get("SPOTIPY_REDIRECT_URI"),
         "username": settings.get("SPOTIPY_USERNAME"),
-        "scope": " ".join(list(settings.get("SPOTIPY_SCOPES"))),
-        "cache_path": settings.user_cache_path(settings.get("SPOTIPY_USERNAME"))
+        "scope": " ".join(list(settings.get("SPOTIPY_SCOPES"))
     }
 
 

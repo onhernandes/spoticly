@@ -5,7 +5,7 @@ Tiny CLI for play/pause/next/prev on Spotify :sparkles:
 # Install
 
 ```sh
-$ pip install --user spotify-cli
+$ pip install git+https://github.com/onhernandes/spotify-cli.git --user
 ```
 
 # Usage
