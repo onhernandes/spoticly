@@ -60,7 +60,7 @@ def next_track(token):
 
 
 def get_current_playback(token):
-    url = "%s/me/player" % (spotify_base)
+    url = "%s/me/player/currently-playing" % (spotify_base)
     r = requests.get(url, headers=get_headers(token))
 
     return r.json()

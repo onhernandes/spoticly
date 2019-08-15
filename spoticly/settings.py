@@ -37,7 +37,7 @@ ensure_config_file()
 
 def get_config():
     with open(config_filepath, "r") as conf:
-        return yaml.load(conf)
+        return yaml.safe_load(conf)
 
 
 def get(k):

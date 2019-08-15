@@ -7,7 +7,7 @@ from subprocess import call
 
 from setuptools import Command, find_packages, setup
 
-from spotify import __version__
+from spoticly import __version__
 
 
 this_dir = abspath(dirname(__file__))
@@ -34,11 +34,11 @@ class RunTests(Command):
 
 
 setup(
-    name="spotify-cli",
+    name="spoticly",
     version=__version__,
     description="A spotify cli app",
     long_description=long_description,
-    url="https://github.com/onhernandees/spotify-cli",
+    url="https://github.com/onhernandees/spoticly",
     author="Hernandes",
     author_email="midia.matheus@gmail.com",
     license="MIT",
@@ -63,6 +63,6 @@ setup(
         "spotipy"
     ],
     extras_require={"test": ["coverage", "pytest", "pytest-cov"]},
-    entry_points={"console_scripts": ["spotify-cli=spotify.cli:main"]},
+    entry_points={"console_scripts": ["spoticly=spoticly.cli:main"]},
     cmdclass={"test": RunTests},
 )
